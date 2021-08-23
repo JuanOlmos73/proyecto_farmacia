@@ -1,0 +1,26 @@
+{% extends 'inicio/encabezado.html' %}
+{%block titulo%}Registrar Farmacos {%endblock%}
+
+{%block header%}
+    <header class="encabezado">
+            <div class="text_titulo1">
+                <div class="glas_morpy1">
+                    <h1>Reabastecimiento de Medicamentos</h1>
+                    <p>para tu bienestar Albergue San Rafael</p>
+                </div>
+            </div>
+    </header>
+{%endblock%}
+
+{%block main%}
+<div class="contenedor_registro">
+<h2 class"titulo_cuerpo_registro">introdusca la nueva cantidad de stock del producto debe de ser mayor a 5 </h2>
+	<form class="form1" action="{% url 'editar' medi.id%}" method="POST" role="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+     <p class="formulario_inputs">Cantidad recivida: <input type="number" name="cantidad"/></p>
+    <button type="submit"  name"enviar">Registrar</button>
+    </form>
+
+</div>
+{%endblock%}

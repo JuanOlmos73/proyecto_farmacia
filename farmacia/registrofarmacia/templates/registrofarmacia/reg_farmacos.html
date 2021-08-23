@@ -1,0 +1,31 @@
+{% extends 'inicio/encabezado.html' %}
+{%block titulo%}Registrar Farmacos {%endblock%}
+
+{%block header%}
+    <header class="encabezado">
+            <div class="text_titulo1">
+                <div class="glas_morpy1">
+                    <h1>Registro de Medicamentos</h1>
+                    <p>para tu bienestar Albergue San Rafael</p>
+                </div>
+            </div>
+    </header>
+{%endblock%}
+
+{%block main%}
+<div class="contenedor_registro">
+<h2 class"titulo_cuerpo_registro">Registre los medicamentos </h2>
+	<form class="form1" action="{% url 'registro'%}" method="POST" role="form" enctype="multipart/form-data">
+    {% csrf_token %}
+     <p class="formulario_inputs">clave: <input type="text" name="clave"/></p>
+     <p class="formulario_inputs">nombre: <input type="text"  name="nombre"/></p>
+     <p class="formulario_inputs">Cantidad recivida: <input type="number" name="cantidad"/></p>
+     <p class="formulario_inputs">fecha de caducidad: <input type="date" name="fecha_de_caducidad"/></p>
+     <p class="formulario_inputs"> descripcion: <textarea  name="descripcion"></textarea></p>
+      <p class="formulario_inputs">imagen: <input name="imagen" type="file" class="item_input"/> </p>
+      <p class="formulario_inputs">estatus: <input type="text" name="disponibilidad"  /></p>    
+    <button type="submit"  name"enviar">Registrar</button>
+    </form>
+
+</div>
+{%endblock%}
