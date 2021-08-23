@@ -1,0 +1,41 @@
+{% extends 'inicio/encabezado.html' %}
+{%block titulo%}Inicio {%endblock%}
+
+{%block header%}
+    <header class="header_principal1">
+            <div class="text_titulo">
+                <div class="glas_morpy">
+                    <h1>Bienvenido</h1>
+                    <p>para tu bienestar Albergue San Rafael</p>
+                </div>
+            </div>
+    </header>
+{%endblock%}
+
+{%block main%}
+    <h2 class="Titulo--inventario">Stock de inventario</h2>
+    <div class="container_tabla">
+    <table class="tabla">
+        <tr>
+            <th>Imagen del medicamento</th>
+            <th>Clave</th>
+            <th>Nombre</th>
+            <th>Cantidad en stock</th>
+            <th>Fecha de caducidad</th>
+            <th>Descripcion</th>
+            <th>Disponibilidad</th>
+        </tr>
+         {% for medicina in medi  %}
+        <tr>
+            <td><img src="{{medicina.imagen.url}}"> </td>
+            <td>{{medicina.clave}} </td>
+            <td>{{medicina.nombre}}</td>
+            <td>{{medicina.cantidad}} </td>
+            <td>{{medicina.fecha_de_caducidad}}</td>
+            <td>{{medicina.descripcion}} </td>
+            <td>{{medicina.disponibilidad}}</td>
+        <tr>
+        {% endfor %}
+        
+</div>
+{%endblock%}

@@ -1,0 +1,36 @@
+{% extends 'inicio/encabezado.html' %}
+{%block titulo%}Registrar Farmacos {%endblock%}
+
+{%block header%}
+    <header class="encabezado">
+            <div class="text_titulo1">
+                <div class="glas_morpy1">
+                    <h1>Registro de salida</h1>
+                    <p>para tu bienestar Albergue San Rafael</p>
+                </div>
+            </div>
+    </header>
+{%endblock%}
+
+{%block main%}
+<div class="contenedor_registro">
+<h2 class"titulo_cuerpo_registro">Registre la salida del medicamento </h2>
+	<form class="form1" action="{% url 'salida_farm' %}" method="POST" role="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p class="formulario_inputs">Nombre del Paciente: </p>
+     <input type="text"  name="nombre_paciente"/>
+     <p class="formulario_inputs">nombre del medicamento suministrado:</p>
+     <select name="medicamento">
+     {% for medicina in medi  %}
+     <option value={{medicina.id}}>{{medicina.nombre}}</option>
+     {% endfor %}
+     </select>
+     <p class="formulario_inputs">cantidad suministrada: </p>
+     <input type="number"  name="cantidad_suministrada"/> 
+     <p class="formulario_inputs">cantidad suministrada: </p>
+     <input type="date"  name="fecha_suministrada"/> 
+    <button type="submit"  name"enviar">Registrar</button>
+    </form>
+
+</div>
+{%endblock%}
